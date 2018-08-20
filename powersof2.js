@@ -8,7 +8,7 @@ let targetNum = 2;
 let score = 0;
 let counter = 1;
 
-$(document).on("keypress", function(e) {
+$(document).on("keypress",(e) => {
     if(e.keyCode === 13) {
         evaluate();
     }
@@ -23,11 +23,10 @@ evaluate = function() {
         targetNum *= 2;
         correct();
         increaseScore();
-} else {
-    console.log("its okay");
+    } else {
     incorrect();
     numInput.val("");
-}   
+    }   
 }
 
 function updateDisplay() {
@@ -37,14 +36,18 @@ function updateDisplay() {
 }
 
 function correct() {
+    resultDisplay.toggleClass("m-fadeOut");
     resultDisplay.removeClass("incorrect");
     resultDisplay.text("Correct!");
     resultDisplay.addClass("correct");
+    resultDisplay.toggleClass("m-fadeOut");
 }
 
 function incorrect() {
-    resultDisplay.text("Wrong!");
+    resultDisplay.removeClass("correct");
+    resultDisplay.text("Incorrect!");
     resultDisplay.addClass("incorrect");
+    resultDisplay.addClass("m-fadeOut");
 }
 
 function increaseScore() {
