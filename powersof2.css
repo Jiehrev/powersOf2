@@ -8,6 +8,7 @@ input {
     padding: 0 10px 0 10px;
     font-size: 20px;    
     text-align: center;
+    position: relative;
 }
 h1 {
     padding: 10px 0 10px 0;
@@ -47,4 +48,8 @@ h1 {
 }
 .scoreAndTimer, h2 {
     padding: 0 15px 0 15px;
+}
+
+#scoreMove {
+    position: relative;
 }
