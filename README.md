@@ -1,1 +1,1 @@
-# powersOf2
+# powersOf2 Game
