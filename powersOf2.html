@@ -11,13 +11,19 @@
 
 </head>
 <body>
-    <h1>Powers^2 Game</h1>
+    <div class="header">
+        <h1>Powers^2 Game</h1>
+        <h2>Score: <span id="score">0</span></h2>
+    </div>
     <div id="main-container">
-        <h1>2^<span id="currentNumber">1</span></h1>
-        <h1 id="previousAnswer"></h1>
-        <div id="">
-            <input type="text" id="numInput">
-        </div>  
+        <div id="info">
+            <h1>2^<span id="currentNumber">1</span></h1>
+            <h1>|</h1>
+            <h1 id="previousAnswer">0</h1>
+        </div>
+        <h2 id="resultDisplay">Enter a number to begin</h2>
+        <input type="text" id="numInput">
+
     </div>
     <script type="text/javascript" src="powersof2.js"></script>
 </body>
