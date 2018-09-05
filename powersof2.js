@@ -2,13 +2,37 @@ const numInput = $("#numInput");
 const currentNumDisplay = $("#currentNumber");
 const previousAnswer = $("#previousAnswer");
 const resultDisplay = $("#resultDisplay");
+const playBtn = $("#play");
 let countDownDisp = $("#countDownDisp");
 let scoreDisplay = $("#score");
+
 
 let targetNum = 2;
 let score = 0;
 let counter = 1;
-countDown(60);
+
+
+function selectTime() {
+    const timeSelected = $("#timeSelected").prop('selectedIndex');
+    const time = {
+        "0": 60,
+        "1": 120,
+        "2": 300,
+        "3": "infinity"
+    };
+    return time[timeSelected];
+}
+
+$("#main-container, .scoreAndTimer").addClass("hide");
+
+playBtn.on("click", function() {
+    $("#main-container, .scoreAndTimer").addClass("show");
+    countDown(selectTime());
+    $("#begin").hide();
+});
+
+
+
 $(document).on("keypress",(e) => {
     if(e.keyCode === 13) { 
         resultDisplay.removeClass("m-fadeOut"); 
@@ -16,7 +40,7 @@ $(document).on("keypress",(e) => {
     }
 });
 
-evaluate = function() {
+function evaluate() {
     const userNumber = Number(numInput.val());
     if(userNumber === targetNum) {
         updateDisplay();  
@@ -58,15 +82,19 @@ function increaseScore() {
 }
 
 function countDown(start) {
-    count = setInterval(function() {
-        start--;
-        if(start <= 0) {
-            clearInterval(count);
+    if(start === "infinity") {
+        countDownDisp.text("Unlimited");
+    } else {
+        count = setInterval(function() {
+            start--;
+            if(start <= 0) {
+                clearInterval(count);
+                countDownDisp.text(start);
+                end();
+            }
             countDownDisp.text(start);
-            end();
-        }
-        countDownDisp.text(start);
-    }, 1000);
+        }, 1000);
+    }
 }
 
 function end() {

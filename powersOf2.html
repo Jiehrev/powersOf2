@@ -13,11 +13,21 @@
 </head>
 <body>
     <div class="header">
-        <h1>Powers^2 Game</h1>
+        <h1>Powers^2 Game</h1> 
     </div>
     <div class="scoreAndTimer">
         <h2 id="scoreMove">Score: <span id="score">0</span></h2>
         <h2>Time left: <span id="countDownDisp">00</span> sec</h2>
+    </div>
+    <div id="begin">
+        <h3>Select a time limit</h3>
+        <select id="timeSelected">
+            <option value="oneMin">1 minute</option>
+            <option value="twoMin">2 minutes</option>
+            <option value="fiveMin">5 minutes</option>
+            <option value="unlimited">Unlimited</option>
+        </select>
+        <button id="play">Play</button>
     </div>
     <div id="main-container">
         <div id="info">
@@ -27,7 +37,6 @@
         </div>
         <h2 id="resultDisplay">Enter a number to begin</h2>
         <input type="text" id="numInput">
-
     </div>
     <script type="text/javascript" src="powersof2.js"></script>
 </body>
